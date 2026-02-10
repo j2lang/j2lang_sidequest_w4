@@ -1,31 +1,24 @@
 ## Project Title
 
-GBDA302 Week 4 Example 5: Blob Platformer (JSON + Classes)
+Side Quest Week 4 Blob Platformer Auto-Loading Levels
 
 ---
 
-## Authors
+## Group Number/Members
 
-Karen Cochrane and David Han
+Joanne Lang j2lang 21066111
 
 ---
 
 ## Description
 
-This matches the structure of the original blob sketch from Week 2 but moves
-details into classes.
+Generates a level using JSON data; uses loops to dynamically place obstacles/platforms. Second level loads automatically when the first is finished.
 
 ---
 
-## Learning Goals
+## Interaction Instructions
 
-Learning Goals:
-
-- - load JSON in preload()
-- create WorldLevel from JSON
-- create BlobPlayer
-- update + draw each frame
-- handle input events (jump, optional next level)
+Land on green to advance • Move: A/D or ←/→ • Jump: Space/W/↑ • Next: N
 
 ---
 
@@ -37,6 +30,19 @@ N/A
 
 ## GenAI
 
-The code was written by Dr. Karen Cochrane and David Han but they used GenAI to write the comments.
+I inputted the .js files and side quest instructions, and ChatGPT gave me explanations of the concepts and .js solutions to try for what I wanted to implement.
+•	Gave it more input – copy pasted in the starting Example 5 files to provide more context after having asked it to explain the side quest instructions; this was to give it more context so it could give a better, more specific response to my initial prompt asking it to explain the instructions
+•	Still didn’t fully understand its explanation, so prompted it to further clarify what the difference was between the arrays approach/JSON approach
+•	Tried implementing a given JSON approach, but the blob couldn’t physically jump high enough to reach the next platform; prompted it for ways to fix this
+•	Prompted for a way to make gap between platforms big enough for the blob to get stuck but not fall through; the result was technically wrong (gave solution for gap slightly bigger than blob width instead of slightly smaller, but I liked this so I kept it)
+•	When adding “win” platforms, prompted it for exactly where in blobPlayer.js I would need to add the given code snippet
+•	Prompted it to fix the mistake in my code by giving it all my updated files (Live Server screen was just blank white, needed to fix this)
+•	Prompted it to fix the level transition glitch
+
+---
+
+## Reference List
+
+N/A
 
 ---
