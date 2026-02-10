@@ -13,7 +13,7 @@ In JSON, platforms are stored like:
 */
 
 class Platform {
-  constructor({ x, y, w, h }) {
+  constructor({ x, y, w, h, special = false }) {
     // Position is the top-left corner.
     this.x = x;
     this.y = y;
@@ -21,10 +21,12 @@ class Platform {
     // Size (width/height).
     this.w = w;
     this.h = h;
+    this.special = special; // new property to store special flag
   }
 
-  draw(fillColor) {
-    fill(fillColor);
+  draw(fillColor, specialColor = "#018963") {
+    if (this.special) fill(specialColor); // draw special color
+    else fill(fillColor);
     rect(this.x, this.y, this.w, this.h);
   }
 }

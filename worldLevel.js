@@ -73,7 +73,7 @@ class WorldLevel {
   drawWorld() {
     background(color(this.theme.bg));
     for (const p of this.platforms) {
-      p.draw(color(this.theme.platform));
+      p.draw(color(this.theme.platform)); // special platform handled in Platform class
     }
   }
 }

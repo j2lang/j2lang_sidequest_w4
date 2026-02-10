@@ -39,6 +39,8 @@ function setup() {
   textSize(14);
 }
 
+let transitionTimer = 0; // new global variable
+
 function draw() {
   // 1) Draw the world (background + platforms)
   world.drawWorld();
@@ -47,10 +49,24 @@ function draw() {
   player.update(world.platforms);
   player.draw(world.theme.blob);
 
-  // 3) HUD
+  // 3) Check for special platform
+  if (player.onSpecial && transitionTimer <= 0) {
+    transitionTimer = 30; // wait 30 frames (~0.5 sec)
+    }
+    
+    if (transitionTimer > 0) {
+      transitionTimer--; // count down
+      if (transitionTimer === 0) {
+        const next = (levelIndex + 1) % data.levels.length;
+        loadLevel(next);
+        player.onSpecial = false; // reset after level switch
+        }
+      }
+
+  // 4) HUD
   fill(0);
   text(world.name, 10, 18);
-  text("Move: A/D or ←/→ • Jump: Space/W/↑ • Next: N", 10, 36);
+  text("Land on green to advance • Move: A/D or ←/→ • Jump: Space/W/↑ • Next: N", 10, 36);
 }
 
 function keyPressed() {

@@ -57,6 +57,9 @@ class BlobPlayer {
     this.wobble = 7;
     this.points = 48;
     this.wobbleFreq = 0.9;
+
+    // Tracks if player is on the special platform
+    this.onSpecial = false;
   }
 
   /*
@@ -136,6 +139,12 @@ class BlobPlayer {
           box.y = s.y - box.h;
           this.vy = 0;
           this.onGround = true;
+          
+          // --- NEW: check if this is the special platform ---
+          if (s.special) {
+          this.onSpecial = true;
+        }
+
         } else if (this.vy < 0) {
           // Rising: snap to platform bottom (head bump)
           box.y = s.y + s.h;
